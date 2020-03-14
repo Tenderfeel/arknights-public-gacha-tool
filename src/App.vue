@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import tags from "@/data/tags";
+import tags from "@/data/tags.js";
 export default {
   name: "App",
   components: {},
