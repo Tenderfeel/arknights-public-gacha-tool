@@ -283,30 +283,3 @@ export default [
     ]
   }
 ];
-
-// export const characters = {
-//   ヴァルカン: {
-//     rare: 5,
-//     tags: [
-//       [
-//         {
-//           name: "生存",
-//           need: 3
-//         },
-//         {
-//           name: "重装タイプ",
-//           need: 2
-//         },
-//         {
-//           name: "防御",
-//           need: 2
-//         }
-//       ],
-//       [
-//         { name: "火力", need: 3 },
-//         { name: "重装タイプ", need: 2 },
-//         { name: "防御", need: 2 }
-//       ]
-//     ]
-//   }
-// };
