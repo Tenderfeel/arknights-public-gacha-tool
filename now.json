@@ -1,0 +1,6 @@
+{
+  "name": "arknights-public-gacha-tool",
+  "version": 2,
+  "alias": "arknights-public-gacha-tool",
+  "builds": [{ "src": "package.json", "use": "@now/static-build" }]
+}
