@@ -65,16 +65,18 @@ export default {
   computed: {
     sortCharacters() {
       const copy = [...this.characters];
-
       return copy.sort((a, b) => {
-        const countA = a.anotherTags.reduce(
-          (accumulator, tag) => accumulator + Number(tag.selected),
-          0
-        );
+        const countA = a.anotherTags.reduce((accumulator, tag) => {
+          return (
+            accumulator + (tag.selected ? Number(tag.selected) + tag.need : 0)
+          );
+        }, 0);
         const countB = b.anotherTags.reduce(
-          (accumulator, tag) => accumulator + Number(tag.selected),
+          (accumulator, tag) =>
+            accumulator + (tag.selected ? Number(tag.selected) + tag.need : 0),
           0
         );
+        // 選択されたタグが多い方
         return countB - countA;
       });
     }
@@ -109,10 +111,15 @@ export default {
       //選択されたタグにキャラが登録されている場合
       // そのキャラクターごとに登録されている他のタグを探す
       tag.characters.forEach(char => {
-        // 選択された
+        const anotherTags = this.getTagsByChar(tag, char);
+        const selectedChar = this.characters.find(c => c.name === char.name);
+        if (selectedChar) {
+          // 2個め以降のタグ選択でダブリが発生した
+          selectedChar.anotherTags = anotherTags;
+        }
+
+        // 選択中
         if (tag.selected) {
-          const anotherTags = this.getTagsByChar(tag, char);
-          const selectedChar = this.characters.find(c => c.name === char.name);
           if (selectedChar) {
             // 2個め以降のタグ選択でダブリが発生した
             selectedChar.anotherTags = anotherTags;
@@ -122,7 +129,13 @@ export default {
         } else {
           // 選択解除された（キャラをリストから削除）
           const index = this.characters.findIndex(c => c.name === char.name);
-          this.characters.splice(index, 1);
+          if (index === -1) return;
+          const isSelectedEmpty = selectedChar.anotherTags.every(
+            tag => !tag.selected
+          );
+          if (isSelectedEmpty) {
+            this.characters.splice(index, 1);
+          }
         }
       });
     },
