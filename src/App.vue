@@ -40,6 +40,9 @@
         </b-list-group>
       </div>
     </div>
+    <p class="text-secondary">
+      <small>※が付いているのは必須タグ</small>
+    </p>
   </div>
 </template>
 
@@ -108,10 +111,11 @@ export default {
       tag.characters.forEach(char => {
         // 選択された
         if (tag.selected) {
-          const anotherTags = this.getTagsByChar(char);
+          const anotherTags = this.getTagsByChar(tag, char);
           const selectedChar = this.characters.find(c => c.name === char.name);
           if (selectedChar) {
             // 2個め以降のタグ選択でダブリが発生した
+            selectedChar.anotherTags = anotherTags;
           } else {
             this.characters.push({ ...char, anotherTags });
           }
@@ -126,15 +130,14 @@ export default {
     /**
      * 指定したキャラが登録されているタグを探す
      */
-    getTagsByChar(char) {
+    getTagsByChar(tag, char) {
       const chars = [];
       this.tags.forEach(tag => {
         if (!tag.characters) return;
-        const data = tag.characters.find(c => c.name === char.name);
-        if (data) {
+        const findChar = tag.characters.find(c => c.name === char.name);
+        if (findChar) {
           // 必要度フラグ追加
-          tag.need = data.need;
-          chars.push(tag);
+          chars.push({ ...tag, need: findChar.need });
         }
       });
       return chars;
@@ -148,16 +151,13 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 5px;
-  /* @media (min-width: 576px) {
+
+  @media (min-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     grid-template-columns: repeat(4, 1fr);
   }
-
-  @media (min-width: 992px) {
-    grid-template-columns: repeat(5, 1fr);
-  } */
 }
 </style>
