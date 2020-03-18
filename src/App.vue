@@ -6,8 +6,8 @@
         <div class="tags py-2">
           <b-button
             class="tag"
+            v-for="tag in tagData"
             :variant="`${tag.selected ? '': 'outline-'}${categoryVariant(tag)}`"
-            v-for="tag in tags"
             :key="tag.name"
             size="sm"
             :pressed.sync="tag.selected"
@@ -24,39 +24,50 @@
               {{ char.name }}
               <span>★{{char.rare}}</span>
             </p>
-            <div v-if="char.anotherTags" class="another-tags">
+            <div v-if="char.tags" class="another-tags">
               <span
+                v-for="(tag, index) in char.tags"
                 class="badge font-weight-normal text-small border p-1 mr-1"
-                :class="[`border-${categoryVariant(tag)}`, tag.selected ? 'text-white':`text-${categoryVariant(tag)}`,
-                tag.selected ? `bg-${categoryVariant(tag)}` : '']"
-                v-for="tag in char.anotherTags"
-                :key="tag.name"
-              >
-                {{tag.name}}
-                <span class="text-danger" v-if="tag.need === 3">*</span>
-              </span>
+                :class="[`border-${tagVariant(tag)}`, isSelectedTag(tag) ? 'text-white':`text-${tagVariant(tag)}`,
+                isSelectedTag(tag) ? `bg-${tagVariant(tag)}` : '']"
+                :key="index"
+              >{{tag}}</span>
             </div>
           </b-list-group-item>
         </b-list-group>
       </div>
     </div>
-    <p class="text-secondary">
-      <small>※が付いているのは必須タグ</small>
-    </p>
   </div>
 </template>
 
 <script>
 import tags from "@/data/tags.js";
+import * as charData from "@/data/charcter.js";
+
+Object.values(charData).forEach(charArray => {
+  charArray.forEach(char => {
+    if (char.rare === 6) {
+      char.tags.unshift("上級エリート");
+    }
+    if (char.rare === 5) {
+      char.tags.unshift("エリート");
+    }
+    char.tags.unshift(`${char.type}タイプ`);
+  });
+});
+
 export default {
   name: "App",
   components: {},
   data() {
     return {
-      tags: tags.map(tag => {
+      // タグデータ
+      tagData: tags.map(tag => {
         tag.selected = false;
         return tag;
       }),
+      // 選択されたタグ
+      selectedTags: [],
       // タグで絞込めるキャラ
       characters: []
     };
@@ -66,19 +77,26 @@ export default {
     sortCharacters() {
       const copy = [...this.characters];
       return copy.sort((a, b) => {
-        const countA = a.anotherTags.reduce((accumulator, tag) => {
-          return (
-            accumulator + (tag.selected ? Number(tag.selected) + tag.need : 0)
-          );
-        }, 0);
-        const countB = b.anotherTags.reduce(
-          (accumulator, tag) =>
-            accumulator + (tag.selected ? Number(tag.selected) + tag.need : 0),
-          0
-        );
-        // 選択されたタグが多い方
+        const countA = a.match + a.rare;
+        const countB = b.match + b.rare;
         return countB - countA;
       });
+    },
+
+    characterData() {
+      let baseData = [
+        ...charData.rare1,
+        ...charData.rare2,
+        ...charData.rare3,
+        ...charData.rare4
+      ];
+      if (this.selectedTags.find(tag => tag.name === "上級エリート")) {
+        baseData = baseData.concat(charData.rare6);
+      }
+      if (this.selectedTags.find(tag => tag.name === "エリート")) {
+        baseData = baseData.concat(charData.rare5);
+      }
+      return baseData.filter(char => char.public);
     }
   },
 
@@ -103,57 +121,40 @@ export default {
       }
     },
 
+    tagVariant(tagName) {
+      const tag = this.tagData.find(data => data.name === tagName);
+      return this.categoryVariant(tag);
+    },
+
+    isSelectedTag(tagName) {
+      return this.selectedTags.find(t => t.name === tagName);
+    },
+
     /**
      * タグが選択された
      */
     onSelect(tag) {
-      if (!tag.characters) return;
-      //選択されたタグにキャラが登録されている場合
-      // そのキャラクターごとに登録されている他のタグを探す
-      tag.characters.forEach(char => {
-        const anotherTags = this.getTagsByChar(tag, char);
-        const selectedChar = this.characters.find(c => c.name === char.name);
-        if (selectedChar) {
-          // 2個め以降のタグ選択でダブリが発生した
-          selectedChar.anotherTags = anotherTags;
-        }
+      if (tag.selected) {
+        this.selectedTags.push(tag);
+      } else {
+        const index = this.selectedTags.findIndex(t => t.name === tag.name);
+        this.selectedTags.splice(index);
+      }
+      this.characters.length = 0;
 
-        // 選択中
-        if (tag.selected) {
-          if (selectedChar) {
-            // 2個め以降のタグ選択でダブリが発生した
-            selectedChar.anotherTags = anotherTags;
-          } else {
-            this.characters.push({ ...char, anotherTags });
-          }
-        } else {
-          // 選択解除された（キャラをリストから削除）
-          const index = this.characters.findIndex(c => c.name === char.name);
-          if (index === -1) return;
-          const isSelectedEmpty = selectedChar.anotherTags.every(
-            tag => !tag.selected
+      this.characterData.forEach(character => {
+        // 選択されたタグにマッチした数カウント
+        const match = this.selectedTags.reduce((accu, tag) => {
+          return (
+            accu +
+            Number(!!character.tags.find(charTag => charTag === tag.name))
           );
-          if (isSelectedEmpty) {
-            this.characters.splice(index, 1);
-          }
-        }
-      });
-    },
+        }, 0);
 
-    /**
-     * 指定したキャラが登録されているタグを探す
-     */
-    getTagsByChar(tag, char) {
-      const chars = [];
-      this.tags.forEach(tag => {
-        if (!tag.characters) return;
-        const findChar = tag.characters.find(c => c.name === char.name);
-        if (findChar) {
-          // 必要度フラグ追加
-          chars.push({ ...tag, need: findChar.need });
+        if (match) {
+          this.characters.push({ ...character, match });
         }
       });
-      return chars;
     }
   }
 };
