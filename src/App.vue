@@ -3,6 +3,20 @@
     <h1 class="h6 mt-1">アークナイツ公開求人タグフィルター</h1>
     <div class="row">
       <div class="col-sm">
+        <div class="container row">
+          <b-form-checkbox
+            v-model="includeRank5"
+            name="check-button"
+            class="col"
+            switch
+          >★5を表示{{ includeRank5 ? 'する' : 'しない' }}</b-form-checkbox>
+          <b-form-checkbox
+            class="col"
+            v-model="includeRank6"
+            name="check-button"
+            switch
+          >★6を表示{{ includeRank6 ? 'する' : 'しない' }}</b-form-checkbox>
+        </div>
         <div class="tags py-2">
           <b-button
             class="tag"
@@ -69,7 +83,11 @@ export default {
       // 選択されたタグ
       selectedTags: [],
       // タグで絞込めるキャラ
-      characters: []
+      characters: [],
+      // ★5★6を追加する
+      // false時はエリートタグが選択されていないとき追加しない
+      includeRank5: true,
+      includeRank6: false
     };
   },
 
@@ -90,10 +108,16 @@ export default {
         ...charData.rare3,
         ...charData.rare4
       ];
-      if (this.selectedTags.find(tag => tag.name === "上級エリート")) {
+      if (
+        this.includeRank6 ||
+        this.selectedTags.find(tag => tag.name === "上級エリート")
+      ) {
         baseData = baseData.concat(charData.rare6);
       }
-      if (this.selectedTags.find(tag => tag.name === "エリート")) {
+      if (
+        this.includeRank5 ||
+        this.selectedTags.find(tag => tag.name === "エリート")
+      ) {
         baseData = baseData.concat(charData.rare5);
       }
       return baseData.filter(char => char.public);
@@ -140,6 +164,7 @@ export default {
         const index = this.selectedTags.findIndex(t => t.name === tag.name);
         this.selectedTags.splice(index);
       }
+
       this.characters.length = 0;
 
       this.characterData.forEach(character => {
