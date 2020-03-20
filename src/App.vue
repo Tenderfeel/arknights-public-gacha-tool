@@ -4,18 +4,8 @@
     <div class="row">
       <div class="col-sm">
         <div class="container row">
-          <b-form-checkbox
-            v-model="includeRank5"
-            name="check-button"
-            class="col"
-            switch
-          >★5を表示{{ includeRank5 ? 'する' : 'しない' }}</b-form-checkbox>
-          <b-form-checkbox
-            class="col"
-            v-model="includeRank6"
-            name="check-button"
-            switch
-          >★6を表示{{ includeRank6 ? 'する' : 'しない' }}</b-form-checkbox>
+          <b-form-checkbox v-model="includeRank5" name="check-button" class="col" switch>★5表示</b-form-checkbox>
+          <b-form-checkbox class="col" v-model="includeRank6" name="check-button" switch>★6表示</b-form-checkbox>
         </div>
         <div class="tags py-2">
           <b-button
@@ -28,6 +18,9 @@
             :title="tag.description"
             @click="onSelect(tag)"
           >{{tag.name}}</b-button>
+        </div>
+        <div class="text-right">
+          <b-button size="sm" type="button" variant="outline-danger" @click.prevent="onReset">リセット</b-button>
         </div>
       </div>
       <!-- キャラクターリスト -->
@@ -180,6 +173,17 @@ export default {
           this.characters.push({ ...character, match });
         }
       });
+    },
+
+    /**
+     * リセット
+     */
+    onReset() {
+      this.tagData.forEach(tag => {
+        tag.selected = false;
+      });
+      this.selectedTags.length = 0;
+      this.characters.length = 0;
     }
   }
 };
