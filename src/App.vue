@@ -87,11 +87,25 @@ export default {
   computed: {
     sortCharacters() {
       const copy = [...this.characters];
-      return copy.sort((a, b) => {
-        const countA = a.match + a.rare;
-        const countB = b.match + b.rare;
-        return countB - countA;
-      });
+      return copy
+        .filter(char => {
+          let is = 1;
+          if (!this.includeRank5) {
+            // false = 1 true = 0
+            console.log(Number(char.rare === 5));
+            is -= Number(char.rare === 5);
+          }
+          if (!this.includeRank6) {
+            is -= Number(char.rare === 6);
+          }
+
+          return is;
+        })
+        .sort((a, b) => {
+          const countA = a.match + a.rare;
+          const countB = b.match + b.rare;
+          return countB - countA;
+        });
     },
 
     characterData() {
@@ -99,20 +113,10 @@ export default {
         ...charData.rare1,
         ...charData.rare2,
         ...charData.rare3,
-        ...charData.rare4
+        ...charData.rare4,
+        ...charData.rare5,
+        ...charData.rare6
       ];
-      if (
-        this.includeRank6 ||
-        this.selectedTags.find(tag => tag.name === "上級エリート")
-      ) {
-        baseData = baseData.concat(charData.rare6);
-      }
-      if (
-        this.includeRank5 ||
-        this.selectedTags.find(tag => tag.name === "エリート")
-      ) {
-        baseData = baseData.concat(charData.rare5);
-      }
       return baseData.filter(char => char.public);
     }
   },
@@ -153,9 +157,15 @@ export default {
     onSelect(tag) {
       if (tag.selected) {
         this.selectedTags.push(tag);
+        if (tag.name === "上級エリート") {
+          this.includeRank6 = true;
+        }
       } else {
         const index = this.selectedTags.findIndex(t => t.name === tag.name);
         this.selectedTags.splice(index);
+        if (tag.name === "上級エリート") {
+          this.includeRank6 = false;
+        }
       }
 
       this.characters.length = 0;
