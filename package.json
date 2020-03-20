@@ -27,11 +27,17 @@
     "env": {
       "node": true
     },
-    "extends": ["plugin:vue/essential", "eslint:recommended"],
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
     "rules": {
       "no-irregular-whitespace": [
         "error",
-        { "skipComments": true, "skipTemplates": true }
+        {
+          "skipComments": true,
+          "skipTemplates": true
+        }
       ]
     },
     "parserOptions": {
@@ -43,7 +49,11 @@
       "autoprefixer": {}
     }
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "keywords": [],
-  "description": "アークナイツの公開求人タグをいい感じに設定するためのツール"
+  "description": ""
 }
