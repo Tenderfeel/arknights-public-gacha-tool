@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <h1 class="h6 mt-1">アークナイツ公開求人タグフィルター</h1>
+    <h1 class="h6 mt-1">アークナイツ公開求人ツール</h1>
     <div class="row">
       <div class="col-sm">
         <div class="container row">
