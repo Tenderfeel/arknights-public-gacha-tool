@@ -201,7 +201,7 @@ export const rare3 = [
 
 export const rare4 = [
   {
-    id: "4-1",
+    id: "scavenger",
     name: "スカベンジャー",
     rare: 4,
     type: "先鋒",
@@ -209,7 +209,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-2",
+    id: "courier",
     name: "クーリエ",
     rare: 4,
     type: "先鋒",
@@ -217,7 +217,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-3",
+    id: "vigna",
     name: "ヴィグナ",
     rare: 4,
     type: "先鋒",
@@ -225,7 +225,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-4",
+    id: "beehunter",
     name: "ビーハンター",
     rare: 4,
     type: "前衛",
@@ -233,7 +233,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-5",
+    id: "matoimaru",
     name: "マトイマル",
     rare: 4,
     type: "前衛",
@@ -241,7 +241,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-6",
+    id: "mousse",
     name: "ムース",
     rare: 4,
     type: "前衛",
@@ -249,7 +249,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-7",
+    id: "estelle",
     name: "エステル",
     rare: 4,
     type: "前衛",
@@ -257,7 +257,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-8",
+    id: "dorbermann",
     name: "ドーベルマン",
     rare: 4,
     type: "前衛",
@@ -265,7 +265,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-9",
+    id: "frostleaf",
     name: "フロストリーフ",
     rare: 4,
     type: "前衛",
@@ -273,7 +273,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-10",
+    id: "cuora",
     name: "クォーラ",
     rare: 4,
     type: "重装",
@@ -281,7 +281,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-11",
+    id: "matterhorn",
     name: "マッターホルン",
     rare: 4,
     type: "重装",
@@ -289,7 +289,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-12",
+    id: "gummy",
     name: "グム",
     rare: 4,
     type: "重装",
@@ -297,7 +297,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-13",
+    id: "jessica",
     name: "ジェシカ",
     rare: 4,
     type: "狙撃",
@@ -305,7 +305,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-14",
+    id: "meteor",
     name: "メテオ",
     rare: 4,
     type: "狙撃",
@@ -313,7 +313,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-15",
+    id: "shirayuki",
     name: "シラユキ",
     rare: 4,
     type: "狙撃",
@@ -321,7 +321,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-16",
+    id: "haze",
     name: "ヘイズ",
     rare: 4,
     type: "術師",
@@ -329,7 +329,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-17",
+    id: "gitano",
     name: "ギターノ",
     rare: 4,
     type: "術師",
@@ -337,7 +337,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-18",
+    id: "greyy",
     name: "グレイ",
     rare: 4,
     type: "術師",
@@ -345,7 +345,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-19",
+    id: "gavial",
     name: "ガヴィル",
     rare: 4,
     type: "医療",
@@ -353,7 +353,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-20",
+    id: "myrrh",
     name: "ミルラ",
     rare: 4,
     type: "医療",
@@ -361,7 +361,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-21",
+    id: "perfumer",
     name: "パフューマー",
     rare: 4,
     type: "医療",
@@ -377,7 +377,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-23",
+    id: "deepcolor",
     name: "ディピカ",
     rare: 4,
     type: "補助",
@@ -385,7 +385,7 @@ export const rare4 = [
     public: false
   },
   {
-    id: "4-24",
+    id: "gravel",
     name: "グラベル",
     rare: 4,
     type: "特殊",
@@ -393,7 +393,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-25",
+    id: "shaw",
     name: "ショウ",
     rare: 4,
     type: "特殊",
@@ -401,7 +401,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-26",
+    id: "rope",
     name: "ロープ",
     rare: 4,
     type: "特殊",
