@@ -639,7 +639,6 @@ export const rare5 = [
 
 export const rare6 = [
   {
-    id: "siegi",
     name: "シージ",
     rare: 6,
     type: "先鋒",
@@ -647,7 +646,6 @@ export const rare6 = [
     public: true
   },
   {
-    id: "skadi",
     name: "スカジ",
     rare: 6,
     type: "前衛",
@@ -655,7 +653,6 @@ export const rare6 = [
     public: true
   },
   {
-    id: "silverash",
     name: "シルバーアッシュ",
     rare: 6,
     type: "前衛",
@@ -663,7 +660,6 @@ export const rare6 = [
     public: true
   },
   {
-    id: "chen",
     name: "チェン",
     rare: 6,
     type: "前衛",
@@ -671,7 +667,6 @@ export const rare6 = [
     public: true
   },
   {
-    id: "hosiguma",
     name: "ホシグマ",
     rare: 6,
     type: "重装",
@@ -679,7 +674,6 @@ export const rare6 = [
     public: true
   },
   {
-    id: "saria",
     name: "サリア",
     rare: 6,
     type: "重装",
@@ -687,7 +681,6 @@ export const rare6 = [
     public: true
   },
   {
-    id: "exusiai",
     name: "エクシア",
     rare: 6,
     type: "狙撃",
@@ -695,7 +688,6 @@ export const rare6 = [
     public: true
   },
   {
-    id: "eyjafjalla",
     name: "エイヤフィヤトラ",
     rare: 6,
     type: "術師",
@@ -703,7 +695,6 @@ export const rare6 = [
     public: false
   },
   {
-    id: "ifrit",
     name: "イフリータ",
     rare: 6,
     type: "術師",
@@ -711,7 +702,6 @@ export const rare6 = [
     public: true
   },
   {
-    id: "shining",
     name: "シャイニング",
     rare: 6,
     type: "医療",
@@ -719,7 +709,6 @@ export const rare6 = [
     public: true
   },
   {
-    id: "nightingale",
     name: "ナイチンゲール",
     rare: 6,
     type: "医療",
@@ -727,7 +716,6 @@ export const rare6 = [
     public: true
   },
   {
-    id: "",
     name: "アンジェリーナ",
     rare: 6,
     type: "補助",
