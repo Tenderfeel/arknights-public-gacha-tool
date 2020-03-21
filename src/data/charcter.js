@@ -19,7 +19,7 @@ export const rare1 = [
 
 export const rare2 = [
   {
-    id: "2-1",
+    id: "yato",
     name: "ヤトウ",
     rare: 2,
     type: "先鋒",
@@ -27,7 +27,7 @@ export const rare2 = [
     public: true
   },
   {
-    id: "2-2",
+    id: "noir-corne",
     name: "ノイルホーン",
     rare: 2,
     type: "重装",
@@ -35,7 +35,7 @@ export const rare2 = [
     public: true
   },
   {
-    id: "2-3",
+    id: "rangers",
     name: "レンジャー",
     rare: 2,
     type: "狙撃",
@@ -43,7 +43,7 @@ export const rare2 = [
     public: true
   },
   {
-    id: "2-4",
+    id: "durin",
     name: "ドゥリン",
     rare: 2,
     type: "術師",
@@ -51,7 +51,7 @@ export const rare2 = [
     public: true
   },
   {
-    id: "2-5",
+    id: "12f",
     name: "12F",
     rare: 2,
     type: "術師",
