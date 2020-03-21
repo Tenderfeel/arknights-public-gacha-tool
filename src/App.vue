@@ -46,7 +46,10 @@
               </div>
             </div>
             <div class="char_meta ml-2">
-              <p class="mb-1 font-weight-bold">{{ char.name }}</p>
+              <p class="mb-1 font-weight-bold">
+                <span class="type-icon" :class="typeId(char.type)"/>
+                {{ char.name }}
+              </p>
               <div v-if="char.tags" class="another-tags">
                 <span
                   v-for="(tag, index) in char.tags"
@@ -157,6 +160,32 @@ export default {
       }
     },
 
+    /**
+     * Convert type name from Japanese to English
+     */
+    typeId(type) {
+      switch (type) {
+        case "先鋒":
+          return "vanguard";
+        case "術師":
+          return "caster";
+        case "前衛":
+          return "guard";
+        case "医療":
+          return "medic";
+        case "狙撃":
+          return "sniper";
+        case "特殊":
+          return "specialist";
+        case "補助":
+          return "support";
+        case "重装":
+          return "tank";
+        default:
+          return null;
+      }
+    },
+
     tagVariant(tagName) {
       const tag = this.tagData.find(data => data.name === tagName);
       return this.categoryVariant(tag);
@@ -260,5 +289,21 @@ export default {
 
 .char_meta {
   flex: 1 1 80%;
+}
+
+.type-icon {
+  background-color: rgb(17, 17, 17);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: text-top;
+
+  @each $name in vanguard caster guard medic sniper specialist support tank {
+    &.#{$name} {
+      background-image: url("images/type/#{$name}.png");
+    }
+  }
 }
 </style>
