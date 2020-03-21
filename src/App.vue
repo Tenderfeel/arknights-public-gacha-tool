@@ -36,7 +36,7 @@
               <div
                 class="thumb border rounded"
                 :style="{
-              backgroundImage: `url(images/char/${char.id}.png)`
+              backgroundImage: `url(images/char/${char.rare}/${char.id}.png)`
             }"
               >
                 <b-img fluid blank v-bind="{width: 100, height: 100}"></b-img>
