@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <h1 class="h6 mt-1">アークナイツ公開求人タグフィルター</h1>
+    <h1 class="h6 mt-1">アークナイツ公開求人ツール</h1>
     <div class="row">
       <div class="col-sm">
         <div class="container row">
@@ -26,19 +26,36 @@
       <!-- キャラクターリスト -->
       <div class="chracter col-sm py-2" ref="characters">
         <b-list-group v-if="characters.length">
-          <b-list-group-item v-for="char in sortCharacters" :key="char.name" size="sm">
-            <p class="mb-1">
-              {{ char.name }}
-              <span>★{{char.rare}}</span>
-            </p>
-            <div v-if="char.tags" class="another-tags">
-              <span
-                v-for="(tag, index) in char.tags"
-                class="badge font-weight-normal text-small border p-1 mr-1"
-                :class="[`border-${tagVariant(tag)}`, isSelectedTag(tag) ? 'text-white':`text-${tagVariant(tag)}`,
+          <b-list-group-item
+            class="d-flex justify-content-start align-items-start p-2"
+            v-for="char in sortCharacters"
+            :key="char.name"
+            size="sm"
+          >
+            <div>
+              <div
+                class="thumb border rounded"
+                :style="{
+              backgroundImage: `url(images/char/${char.id}.png)`
+            }"
+              >
+                <b-img fluid blank v-bind="{width: 100, height: 100}"></b-img>
+                <div class="rare text-center">
+                  <span class="rare_star" v-for="i in char.rare" :key="i">★</span>
+                </div>
+              </div>
+            </div>
+            <div class="char_meta ml-2 flex-grow-1">
+              <p class="mb-1 font-weight-bold">{{ char.name }}</p>
+              <div v-if="char.tags" class="another-tags">
+                <span
+                  v-for="(tag, index) in char.tags"
+                  class="badge font-weight-normal text-small border p-1 mr-1"
+                  :class="[`border-${tagVariant(tag)}`, isSelectedTag(tag) ? 'text-white':`text-${tagVariant(tag)}`,
                 isSelectedTag(tag) ? `bg-${tagVariant(tag)}` : '']"
-                :key="index"
-              >{{tag}}</span>
+                  :key="index"
+                >{{tag}}</span>
+              </div>
             </div>
           </b-list-group-item>
         </b-list-group>
@@ -209,5 +226,39 @@ export default {
   @media (min-width: 992px) {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+.thumb {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+  max-width: 100px;
+  min-width: 70px;
+}
+.rare {
+  color: rgb(243, 220, 13);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.8rem;
+  letter-spacing: -2px;
+  //-webkit-text-stroke: 1px black;
+
+  .rare_star {
+    text-shadow: 0 0 3px #000;
+  }
+
+  @media (min-width: 576px) {
+    letter-spacing: -0.4rem;
+    text-indent: -0.4rem;
+  }
+
+  @media (min-width: 768px) {
+    letter-spacing: -2px;
+    text-indent: 0;
+  }
+}
+
+.char_meta {
+  max-width: 70%;
 }
 </style>
