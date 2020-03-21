@@ -1,6 +1,6 @@
 export const rare1 = [
   {
-    id: "1-1",
+    id: "castle-3",
     name: "Castle-3",
     rare: 1,
     type: "前衛",
@@ -8,7 +8,7 @@ export const rare1 = [
     public: true
   },
   {
-    id: "1-2",
+    id: "lanchet-2",
     name: "Lancet-2",
     rare: 1,
     type: "医療",
