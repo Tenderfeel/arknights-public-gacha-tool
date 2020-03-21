@@ -369,7 +369,7 @@ export const rare4 = [
     public: true
   },
   {
-    id: "4-22",
+    id: "earthspirit",
     name: "アーススピリット",
     rare: 4,
     type: "補助",
