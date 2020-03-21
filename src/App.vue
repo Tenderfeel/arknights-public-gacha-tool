@@ -302,7 +302,7 @@ export default {
 
   @each $name in vanguard caster guard medic sniper specialist support tank {
     &.#{$name} {
-      background-image: url("images/type/#{$name}.png");
+      background-image: url("/images/type/#{$name}.png");
     }
   }
 }
