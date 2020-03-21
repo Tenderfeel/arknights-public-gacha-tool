@@ -412,6 +412,7 @@ export const rare4 = [
 
 export const rare5 = [
   {
+    id: "texas",
     name: "テキサス",
     rare: 5,
     type: "先鋒",
@@ -419,6 +420,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "zima",
     name: "ズィマー",
     rare: 5,
     type: "先鋒",
@@ -426,6 +428,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "grani",
     name: "グラニ",
     rare: 5,
     type: "先鋒",
@@ -433,6 +436,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "indra",
     name: "インドラ",
     rare: 5,
     type: "前衛",
@@ -440,6 +444,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "franka",
     name: "フランカ",
     rare: 5,
     type: "前衛",
@@ -447,6 +452,7 @@ export const rare5 = [
     public: false
   },
   {
+    id: "savage",
     name: "サベージ",
     rare: 5,
     type: "前衛",
@@ -454,6 +460,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "specter",
     name: "スペクター",
     rare: 5,
     type: "前衛",
@@ -461,6 +468,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "swire",
     name: "スワイヤー",
     rare: 5,
     type: "前衛",
@@ -468,6 +476,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "lappland",
     name: "ラップランド",
     rare: 5,
     type: "前衛",
@@ -475,6 +484,7 @@ export const rare5 = [
     public: false
   },
   {
+    id: "liskarm",
     name: "リスカム",
     rare: 5,
     type: "重装",
@@ -482,6 +492,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "croissant",
     name: "クロワッサン",
     rare: 5,
     type: "重装",
@@ -489,6 +500,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "niarl",
     name: "二アール",
     rare: 5,
     type: "重装",
@@ -496,6 +508,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "vulcan",
     name: "ヴァルカン",
     rare: 5,
     type: "重装",
@@ -503,6 +516,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "bluepoison",
     name: "アズリウス",
     rare: 5,
     type: "狙撃",
@@ -510,6 +524,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "platinum",
     name: "プラチナ",
     rare: 5,
     type: "狙撃",
@@ -517,6 +532,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "meteorite",
     name: "メテオリーテ",
     rare: 5,
     type: "狙撃",
@@ -524,6 +540,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "provence",
     name: "プロヴァンス",
     rare: 5,
     type: "狙撃",
@@ -531,6 +548,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "firewatch",
     name: "ファイヤーウォッチ",
     rare: 5,
     type: "狙撃",
@@ -538,6 +556,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "amiya",
     name: "アーミヤ",
     rare: 5,
     type: "術師",
@@ -545,6 +564,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "nightmare",
     name: "ナイトメア",
     rare: 5,
     type: "術師",
@@ -552,6 +572,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "skyfire",
     name: "スカイフレア",
     rare: 5,
     type: "術師",
@@ -559,6 +580,7 @@ export const rare5 = [
     public: false
   },
   {
+    id: "silence",
     name: "サイレンス",
     rare: 5,
     type: "医療",
@@ -566,6 +588,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "warfarin",
     name: "ワルファリン",
     rare: 5,
     type: "医療",
@@ -573,6 +596,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "ptilopsis",
     name: "フィリオプシス",
     rare: 5,
     type: "医療",
@@ -580,6 +604,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "istina",
     name: "イースチナ",
     rare: 5,
     type: "補助",
@@ -587,6 +612,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "mayer",
     name: "メイヤー",
     rare: 5,
     type: "補助",
@@ -594,6 +620,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "sora",
     name: "ソラ",
     rare: 5,
     type: "補助",
@@ -601,6 +628,7 @@ export const rare5 = [
     public: false
   },
   {
+    id: "pramanix",
     name: "プラマニクス",
     rare: 5,
     type: "補助",
@@ -608,6 +636,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "projekt-red",
     name: "レッド",
     rare: 5,
     type: "特殊",
@@ -615,6 +644,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "feater",
     name: "エフイーター",
     rare: 5,
     type: "特殊",
@@ -622,6 +652,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "cliffheart",
     name: "クリフハート",
     rare: 5,
     type: "特殊",
@@ -629,6 +660,7 @@ export const rare5 = [
     public: true
   },
   {
+    id: "manticore",
     name: "マンティコア",
     rare: 5,
     type: "特殊",
@@ -639,6 +671,7 @@ export const rare5 = [
 
 export const rare6 = [
   {
+    id: "siegi",
     name: "シージ",
     rare: 6,
     type: "先鋒",
@@ -646,6 +679,7 @@ export const rare6 = [
     public: true
   },
   {
+    id: "skadi",
     name: "スカジ",
     rare: 6,
     type: "前衛",
@@ -653,6 +687,7 @@ export const rare6 = [
     public: true
   },
   {
+    id: "silverash",
     name: "シルバーアッシュ",
     rare: 6,
     type: "前衛",
@@ -660,6 +695,7 @@ export const rare6 = [
     public: true
   },
   {
+    id: "chen",
     name: "チェン",
     rare: 6,
     type: "前衛",
@@ -667,6 +703,7 @@ export const rare6 = [
     public: true
   },
   {
+    id: "hosiguma",
     name: "ホシグマ",
     rare: 6,
     type: "重装",
@@ -674,6 +711,7 @@ export const rare6 = [
     public: true
   },
   {
+    id: "saria",
     name: "サリア",
     rare: 6,
     type: "重装",
@@ -681,6 +719,7 @@ export const rare6 = [
     public: true
   },
   {
+    id: "exusiai",
     name: "エクシア",
     rare: 6,
     type: "狙撃",
@@ -688,6 +727,7 @@ export const rare6 = [
     public: true
   },
   {
+    id: "eyjafjalla",
     name: "エイヤフィヤトラ",
     rare: 6,
     type: "術師",
@@ -695,6 +735,7 @@ export const rare6 = [
     public: false
   },
   {
+    id: "ifrit",
     name: "イフリータ",
     rare: 6,
     type: "術師",
@@ -702,6 +743,7 @@ export const rare6 = [
     public: true
   },
   {
+    id: "shining",
     name: "シャイニング",
     rare: 6,
     type: "医療",
@@ -709,6 +751,7 @@ export const rare6 = [
     public: true
   },
   {
+    id: "nightingale",
     name: "ナイチンゲール",
     rare: 6,
     type: "医療",
@@ -716,6 +759,7 @@ export const rare6 = [
     public: true
   },
   {
+    id: "",
     name: "アンジェリーナ",
     rare: 6,
     type: "補助",
