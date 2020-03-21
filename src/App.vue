@@ -32,7 +32,7 @@
             :key="char.name"
             size="sm"
           >
-            <div>
+            <div class="char_thumb">
               <div
                 class="thumb border rounded"
                 :style="{
@@ -45,7 +45,7 @@
                 </div>
               </div>
             </div>
-            <div class="char_meta ml-2 flex-grow-1">
+            <div class="char_meta ml-2">
               <p class="mb-1 font-weight-bold">{{ char.name }}</p>
               <div v-if="char.tags" class="another-tags">
                 <span
@@ -259,6 +259,6 @@ export default {
 }
 
 .char_meta {
-  max-width: 70%;
+  flex: 1 1 80%;
 }
 </style>
